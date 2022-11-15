@@ -6,7 +6,7 @@
 /*   By: ezanotti <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/15 18:27:00 by ezanotti          #+#    #+#             */
-/*   Updated: 2022/11/15 20:44:26 by ezanotti         ###   ########lyon.fr   */
+/*   Updated: 2022/11/15 20:51:24 by ezanotti         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,4 +65,15 @@ void	ft_printaddress(void *address)
 	ft_putstr("0x");
 	while (i >= 0)
 		ft_putchar(str[i--]);
+}
+
+void	ft_convert_base(char *base, int nbr)
+{
+	if (nbr >= 16)
+	{
+		ft_convert_base(base, nbr / 16);
+		ft_putchar(base[nbr % 16]);
+	}
+	else
+		ft_putchar(base[nbr % 16]);
 }

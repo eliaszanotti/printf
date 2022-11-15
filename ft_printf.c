@@ -6,7 +6,7 @@
 /*   By: ezanotti <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/15 18:15:46 by ezanotti          #+#    #+#             */
-/*   Updated: 2022/11/15 20:49:41 by ezanotti         ###   ########lyon.fr   */
+/*   Updated: 2022/11/15 20:50:28 by ezanotti         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,16 +14,7 @@
 
 #include <stdio.h>
 
-void	ft_convert_base(char *base, int nbr)
-{
-	if (nbr >= 16)
-	{
-		ft_convert_base(base, nbr / 16);
-		ft_putchar(base[nbr % 16]);
-	}
-	else
-		ft_putchar(base[nbr % 16]);
-}
+
 
 int ft_printf(const char *s, ...)
 {
