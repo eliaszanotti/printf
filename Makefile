@@ -6,7 +6,7 @@
 #    By: ezanotti <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/11/15 18:13:50 by ezanotti          #+#    #+#              #
-#    Updated: 2022/11/15 19:31:41 by ezanotti         ###   ########lyon.fr    #
+#    Updated: 2022/11/16 16:50:27 by ezanotti         ###   ########lyon.fr    #
 #                                                                              #
 # **************************************************************************** #
 
@@ -23,7 +23,7 @@ AR		= ar rcs
 
 all :		${NAME}
 
-%.o: %.c	${DIR_O}
+%.o: %.c	ft_printf.h Makefile
 			${CC} ${CFLAGS} -I ${HEADER} -c $< -o ${<:.c=.o}
 
 ${NAME}:	${OBJS}
