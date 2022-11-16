@@ -15,11 +15,13 @@
 #include <stdio.h>
 
 
+#include <limits.h>
 
 int ft_printf(const char *s, ...)
 {
 	va_list	args;
 	int		i;
+	int		nbr;
 
 	va_start(args, s);
 	i = 0;
@@ -39,7 +41,16 @@ int ft_printf(const char *s, ...)
 			else if (s[i] == 'i')
 				ft_putnbr(va_arg(args, int));
 			else if (s[i] == 'u')
-				ft_putnbr(va_arg(args, int));
+			{
+				nbr = va_arg(args, int);
+				
+				if (nbr < 0)
+					ft_putnbr(UINT_MAX - nbr);
+				else
+					ft_putnbr(nbr);
+			
+
+			}
 			else if (s[i] == 'x')
                 ft_convert_base("0123456789abcdef", va_arg(args, int));
 			else if (s[i] == 'X')
@@ -58,8 +69,8 @@ int ft_printf(const char *s, ...)
 #include <stdio.h>
 int main()
 {
-	char *a = "denufhue";
+	int d = -10;
 
-	printf("%p\n", &a);
-	ft_printf("%p\n", &a);
+	printf("%u\n", d);
+	ft_printf("%u\n", -10);
 }
