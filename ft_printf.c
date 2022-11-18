@@ -6,20 +6,20 @@
 /*   By: ezanotti <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/15 18:15:46 by ezanotti          #+#    #+#             */
-/*   Updated: 2022/11/18 15:01:58 by ezanotti         ###   ########lyon.fr   */
+/*   Updated: 2022/11/18 20:01:06 by ezanotti         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-static int	ft_putnbr_unsigned(unsigned int n)
+int	ft_putnbr_unsigned(unsigned int n)
 {
 	if (n >= 0 && n <= 9)
 		return (ft_putchar(n + '0'));
 	return (ft_putnbr(n / 10) + ft_putchar((n % 10) + '0'));
 }
 
-static int	ft_printf_calls(va_list args, char type)
+int	ft_printf_calls(va_list args, char type)
 {
 	int	total;
 
