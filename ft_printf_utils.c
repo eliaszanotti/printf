@@ -6,7 +6,7 @@
 /*   By: ezanotti <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/15 18:27:00 by ezanotti          #+#    #+#             */
-/*   Updated: 2022/11/18 13:52:12 by ezanotti         ###   ########lyon.fr   */
+/*   Updated: 2022/11/18 14:10:19 by ezanotti         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,18 +44,32 @@ int	ft_putnbr(int n)
 int	ft_printaddress(void *address)
 {
 	unsigned long	address_long;
+	int i = 0;
+	char str[17];
+	char *base = "0123456789abcdef";
+	int total = 0;
 
 	if (!address)
 		return (ft_putstr("0x0"));
 	address_long = (long int)address;
-	return (ft_putstr("0x") + ft_put_base("0123456789abcdef", address_long));
+	total = 0;
+	while (address_long)
+	{
+		str[i] = base[address_long % 16];
+		address_long /= 16;
+		i++;
+	}
+	total += ft_putstr("0x");
+	while (--i >= 0)
+		total += ft_putchar(str[i]);
+	return (total);
 }
 
-int	ft_put_base(char *base, long int nbr)
+int	ft_base(char *base, long int nbr)
 {
 	if (nbr < 0)
-		return (ft_put_base(base, 4294967296 + nbr));
+		return (ft_base(base, 4294967296 + nbr));
 	if (nbr < 16)
 		return (ft_putchar(base[nbr % 16]));
-	return (ft_put_base(base, nbr / 16) + ft_putchar(base[nbr % 16]));
+	return (ft_base(base, nbr / 16) + ft_putchar(base[nbr % 16]));
 }

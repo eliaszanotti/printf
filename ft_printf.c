@@ -6,7 +6,7 @@
 /*   By: ezanotti <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/15 18:15:46 by ezanotti          #+#    #+#             */
-/*   Updated: 2022/11/18 13:38:25 by ezanotti         ###   ########lyon.fr   */
+/*   Updated: 2022/11/18 14:04:36 by ezanotti         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,9 +37,9 @@ static int	ft_printf_calls(va_list args, char type)
 	else if (type == 'u')
 		total += ft_putnbr_unsigned(va_arg(args, int));
 	else if (type == 'x')
-		total += ft_convert_base("0123456789abcdef", va_arg(args, int));
+		total += ft_base("0123456789abcdef", va_arg(args, int));
 	else if (type == 'X')
-		total += ft_convert_base("0123456789ABCDEF", va_arg(args, int));
+		total += ft_base("0123456789ABCDEF", va_arg(args, int));
 	else if (type == '%')
 		total += ft_putchar('%');
 	return (total);
@@ -65,3 +65,10 @@ int	ft_printf(const char *s, ...)
 	va_end(args);
 	return (total);
 }
+
+/*int main()
+{
+	char *s = "dgfeffe";
+
+	ft_printf("%p\n", s);
+}*/

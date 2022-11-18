@@ -6,7 +6,7 @@
 /*   By: ezanotti <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/15 18:16:33 by ezanotti          #+#    #+#             */
-/*   Updated: 2022/11/18 13:52:30 by ezanotti         ###   ########lyon.fr   */
+/*   Updated: 2022/11/18 14:09:11 by ezanotti         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ int	ft_putchar(char c);
 int	ft_putstr(char *s);
 int	ft_putnbr(int n);
 int	ft_printaddress(void *address);
-int	ft_put_base(char *base, long int nbr);
+int	ft_base(char *base, long int nbr);
 
 int	ft_printf(const char *s, ...);
 
