@@ -6,7 +6,7 @@
 /*   By: ezanotti <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/15 18:27:00 by ezanotti          #+#    #+#             */
-/*   Updated: 2022/11/16 16:29:24 by ezanotti         ###   ########lyon.fr   */
+/*   Updated: 2022/11/18 13:38:11 by ezanotti         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,26 +45,14 @@ int	ft_printaddress(void *address)
 {
 	unsigned long	address_long;
 	int				i;
-	char			str[17];
 	char			*base;
-	int				total;
 
 	if (!address)
 		return (ft_putstr("0x0"));
 	address_long = (long int)address;
 	i = 0;
 	base = "0123456789abcdef";
-	total = 0;
-	while (address_long)
-	{
-		str[i] = base[address_long % 16];
-		address_long /= 16;
-		i++;
-	}
-	total += ft_putstr("0x");
-	while (--i >= 0)
-		total += ft_putchar(str[i]);
-	return (total);
+	return (ft_putstr("0x") + ft_convert_base(base, address_long));
 }
 
 int	ft_convert_base(char *base, long int nbr)
