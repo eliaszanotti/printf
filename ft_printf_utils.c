@@ -6,7 +6,7 @@
 /*   By: ezanotti <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/15 18:27:00 by ezanotti          #+#    #+#             */
-/*   Updated: 2022/11/18 13:38:11 by ezanotti         ###   ########lyon.fr   */
+/*   Updated: 2022/11/18 13:52:12 by ezanotti         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,22 +44,18 @@ int	ft_putnbr(int n)
 int	ft_printaddress(void *address)
 {
 	unsigned long	address_long;
-	int				i;
-	char			*base;
 
 	if (!address)
 		return (ft_putstr("0x0"));
 	address_long = (long int)address;
-	i = 0;
-	base = "0123456789abcdef";
-	return (ft_putstr("0x") + ft_convert_base(base, address_long));
+	return (ft_putstr("0x") + ft_put_base("0123456789abcdef", address_long));
 }
 
-int	ft_convert_base(char *base, long int nbr)
+int	ft_put_base(char *base, long int nbr)
 {
 	if (nbr < 0)
-		return (ft_convert_base(base, 4294967296 + nbr));
+		return (ft_put_base(base, 4294967296 + nbr));
 	if (nbr < 16)
 		return (ft_putchar(base[nbr % 16]));
-	return (ft_convert_base(base, nbr / 16) + ft_putchar(base[nbr % 16]));
+	return (ft_put_base(base, nbr / 16) + ft_putchar(base[nbr % 16]));
 }
