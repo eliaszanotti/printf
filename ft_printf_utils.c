@@ -6,7 +6,7 @@
 /*   By: ezanotti <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/15 18:27:00 by ezanotti          #+#    #+#             */
-/*   Updated: 2022/11/18 14:10:19 by ezanotti         ###   ########lyon.fr   */
+/*   Updated: 2022/11/18 14:49:55 by ezanotti         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,14 +44,16 @@ int	ft_putnbr(int n)
 int	ft_printaddress(void *address)
 {
 	unsigned long	address_long;
-	int i = 0;
-	char str[17];
-	char *base = "0123456789abcdef";
-	int total = 0;
+	int				i;
+	char			str[17];
+	char			*base;
+	int				total;
 
 	if (!address)
 		return (ft_putstr("0x0"));
 	address_long = (long int)address;
+	i = 0;
+	base = "0123456789abcdef";
 	total = 0;
 	while (address_long)
 	{
