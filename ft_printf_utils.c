@@ -6,19 +6,19 @@
 /*   By: ezanotti <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/15 18:27:00 by ezanotti          #+#    #+#             */
-/*   Updated: 2022/11/18 14:49:55 by ezanotti         ###   ########lyon.fr   */
+/*   Updated: 2022/11/18 15:02:25 by ezanotti         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-int	ft_putchar(char c)
+static int	ft_putchar(char c)
 {
 	write(1, &c, 1);
 	return (1);
 }
 
-int	ft_putstr(char *s)
+static int	ft_putstr(char *s)
 {
 	int	total;
 
@@ -30,7 +30,7 @@ int	ft_putstr(char *s)
 	return (total);
 }
 
-int	ft_putnbr(int n)
+static int	ft_putnbr(int n)
 {
 	if (n == -2147483648)
 		return (ft_putstr("-2147483648"));
@@ -41,7 +41,7 @@ int	ft_putnbr(int n)
 	return (ft_putnbr(n / 10) + ft_putchar((n % 10) + '0'));
 }
 
-int	ft_printaddress(void *address)
+static int	ft_printaddress(void *address)
 {
 	unsigned long	address_long;
 	int				i;
@@ -67,7 +67,7 @@ int	ft_printaddress(void *address)
 	return (total);
 }
 
-int	ft_base(char *base, long int nbr)
+static int	ft_base(char *base, long int nbr)
 {
 	if (nbr < 0)
 		return (ft_base(base, 4294967296 + nbr));

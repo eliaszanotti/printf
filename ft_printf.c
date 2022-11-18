@@ -6,7 +6,7 @@
 /*   By: ezanotti <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/15 18:15:46 by ezanotti          #+#    #+#             */
-/*   Updated: 2022/11/18 14:04:36 by ezanotti         ###   ########lyon.fr   */
+/*   Updated: 2022/11/18 15:01:58 by ezanotti         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,10 +65,3 @@ int	ft_printf(const char *s, ...)
 	va_end(args);
 	return (total);
 }
-
-/*int main()
-{
-	char *s = "dgfeffe";
-
-	ft_printf("%p\n", s);
-}*/
