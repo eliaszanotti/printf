@@ -6,7 +6,7 @@
 /*   By: ezanotti <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/15 18:15:46 by ezanotti          #+#    #+#             */
-/*   Updated: 2022/11/21 19:08:48 by ezanotti         ###   ########lyon.fr   */
+/*   Updated: 2022/11/21 19:32:10 by ezanotti         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,7 +54,7 @@ int	ft_printf(const char *s, ...)
 	va_start(args, s);
 	i = 0;
 	total = 0;
-	if (write(1, 0, 0) != 1)
+	if (write(1, 0, 0) == -1)
 	{
 		return (-1);
 		va_end(args);
