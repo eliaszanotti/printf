@@ -6,7 +6,7 @@
 /*   By: ezanotti <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/15 18:15:46 by ezanotti          #+#    #+#             */
-/*   Updated: 2022/11/21 19:32:10 by ezanotti         ###   ########lyon.fr   */
+/*   Updated: 2022/11/22 15:54:14 by ezanotti         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,6 +42,8 @@ int	ft_printf_calls(va_list args, char type)
 		total += ft_base("0123456789ABCDEF", va_arg(args, int));
 	else if (type == '%')
 		total += ft_putchar('%');
+	else
+		total += ft_putchar(type);
 	return (total);
 }
 
